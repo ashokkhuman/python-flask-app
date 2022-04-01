@@ -1,6 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  namespace: DEPLOYMENTENVIRONMENT
   name: python-flask-app-deployment # Define the Deployment Name
 spec:
   selector: # Define the Selector
@@ -24,6 +25,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
+  namespace: DEPLOYMENTENVIRONMENT
   name: python-flask-app-service
   labels:
     run: python-flask-app-label
