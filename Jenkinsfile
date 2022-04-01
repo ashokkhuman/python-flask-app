@@ -40,7 +40,7 @@ pipeline {
         stage('Deploy to Kubernetes') {
             steps {
                 echo 'Deploy the App using Kubectl'
-                sh "sed -i '/s/TAG/$BUILD_NUMBER/g' python-flask-deployment.yml"
+                sh "sed -i 's/TAG/$BUILD_NUMBER/g' python-flask-deployment.yml"
                 sh "kubectl apply -f python-flask-deployment.yml"
             }
         }
