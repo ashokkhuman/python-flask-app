@@ -13,7 +13,7 @@ pipeline {
         } 
         stage('Security scan') {
             steps {
-                sh 'docker run --user $(id -u):$(id -g) -v $(pwd):/src --rm secfigo/bandit bandit -r /src -f json -o /src/bandit-output.json | exit 0'
+                sh 'docker run --user $(id -u):$(id -g) -v $(pwd):/src --rm dxa4481/trufflehog file:///src'
             }
         }
         stage('Building our image') { 
