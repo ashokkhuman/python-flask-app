@@ -11,7 +11,7 @@ pipeline {
                 git branch:'main', url: 'https://github.com/ashokkhuman/python-flask-app.git' 
             }
         } 
-        stage('Security scan') {
+        stage('Secret scan using TruffleHog') {
             steps {
                 sh 'docker run --user $(id -u):$(id -g) -v $(pwd):/src --rm dxa4481/trufflehog file:///src'
             }
